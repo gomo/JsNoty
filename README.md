@@ -39,7 +39,7 @@ class ViewController: UIViewController, UIWebViewDelegate, JsNotyDelegate {
     }
 ```
 
-### Notify to webView
+### Notify to inside webView javascript
 
 ```swift
 self.jsNoty.notify("eventName");
@@ -60,6 +60,7 @@ You must call `JsNoty.nofify()` after window onload
   <title>Document</title>
   <script src="/js/js-noty/JsNoty.js"></script>
   <script>
+    //recieve JsNoty.notify in Swift
     JsNoty.on('eventName', function(e){
       //do somthing
     });
