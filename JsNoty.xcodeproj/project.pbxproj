@@ -13,6 +13,9 @@
 		2C16F0381AE1E27C0048E22A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C16F0371AE1E27C0048E22A /* Images.xcassets */; };
 		2C16F03B1AE1E27C0048E22A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C16F0391AE1E27C0048E22A /* LaunchScreen.xib */; };
 		2C16F0471AE1E27C0048E22A /* JsNotyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C16F0461AE1E27C0048E22A /* JsNotyTests.swift */; };
+		2C16F0511AE1E2D80048E22A /* js in Resources */ = {isa = PBXBuildFile; fileRef = 2C16F0501AE1E2D80048E22A /* js */; };
+		2C16F0531AE1E2E50048E22A /* JsNoty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C16F0521AE1E2E50048E22A /* JsNoty.swift */; };
+		2C16F0561AE1E32B0048E22A /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C16F0551AE1E32B0048E22A /* json.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		2C16F0401AE1E27C0048E22A /* JsNotyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JsNotyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C16F0451AE1E27C0048E22A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C16F0461AE1E27C0048E22A /* JsNotyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsNotyTests.swift; sourceTree = "<group>"; };
+		2C16F0501AE1E2D80048E22A /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
+		2C16F0521AE1E2E50048E22A /* JsNoty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsNoty.swift; sourceTree = "<group>"; };
+		2C16F0551AE1E32B0048E22A /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = json.swift; path = "../../swift-json/json/json.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,9 @@
 		2C16F02D1AE1E27C0048E22A /* JsNoty */ = {
 			isa = PBXGroup;
 			children = (
+				2C16F0551AE1E32B0048E22A /* json.swift */,
+				2C16F0541AE1E2EB0048E22A /* lib */,
+				2C16F0501AE1E2D80048E22A /* js */,
 				2C16F0301AE1E27C0048E22A /* AppDelegate.swift */,
 				2C16F0321AE1E27C0048E22A /* ViewController.swift */,
 				2C16F0341AE1E27C0048E22A /* Main.storyboard */,
@@ -110,6 +119,14 @@
 				2C16F0451AE1E27C0048E22A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2C16F0541AE1E2EB0048E22A /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				2C16F0521AE1E2E50048E22A /* JsNoty.swift */,
+			);
+			name = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +212,7 @@
 				2C16F0361AE1E27C0048E22A /* Main.storyboard in Resources */,
 				2C16F03B1AE1E27C0048E22A /* LaunchScreen.xib in Resources */,
 				2C16F0381AE1E27C0048E22A /* Images.xcassets in Resources */,
+				2C16F0511AE1E2D80048E22A /* js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +232,8 @@
 			files = (
 				2C16F0331AE1E27C0048E22A /* ViewController.swift in Sources */,
 				2C16F0311AE1E27C0048E22A /* AppDelegate.swift in Sources */,
+				2C16F0531AE1E2E50048E22A /* JsNoty.swift in Sources */,
+				2C16F0561AE1E32B0048E22A /* json.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
