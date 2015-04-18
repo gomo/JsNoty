@@ -14,7 +14,7 @@ Add [JsNoty.swift](https://github.com/gomo/JsNoty/blob/master/JsNoty/JsNoty.swif
 
 ## Swift side
 
-### Initialize and prepare to recieve notification
+### Initialize and prepare
 
 ```swift
 class ViewController: UIViewController, UIWebViewDelegate, JsNotyDelegate {
@@ -37,6 +37,11 @@ class ViewController: UIViewController, UIWebViewDelegate, JsNotyDelegate {
         
         return true
     }
+    
+    //JsNotyDelegate. Recieve event from javascript.
+    func didRecieveJsNotification(name:String, data:JSON?){
+        println(name, data)
+    }
 ```
 
 ### Notify to inside webView javascript
@@ -47,6 +52,7 @@ self.jsNoty.notify("eventName");
 //send json object
 self.jsNoty.notify("eventNameWithJson", data: JSON(["foo": "bar"]));
 ```
+
 
 ## javascript side
 
