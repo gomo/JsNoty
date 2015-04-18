@@ -14,7 +14,8 @@
     notifying = true;
     if(queue.length){
       var next = queue.pop();
-      location.href = 'jsnoty://' + next.name + '/' + (next.data ? jsonStringfy(value) : '');
+      var url = 'jsnoty://' + next.name + '/' + (next.data ? jsonStringfy(next.data) : '');
+      location.href = url;
     }
   };
   function jsonStringfy(obj){

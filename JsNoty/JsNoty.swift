@@ -1,5 +1,5 @@
 //
-//  GmJsNoty.swift
+//  JsNoty.swift
 //  book-on.ios
 //
 //  Created by Masamoto Miyata on 2015/04/13.
@@ -27,9 +27,15 @@ public class JsNoty:NSObject {
         
         self.webView.stringByEvaluatingJavaScriptFromString("document.dispatchEvent(new CustomEvent(\"JsNotyRecieved\"))");
         
+        let paths = split(request.URL!.path!){$0 == "/"};
+        var data:JSON? = nil;
+        if(!paths.isEmpty){
+            data = JSON(paths[0]);
+        }
+        
         let key:String = request.URL!.host!;
         
-        delegate?.didRecieveJsNotification(key, data: nil)
+        delegate?.didRecieveJsNotification(key, data: data)
         
         return true;
     }

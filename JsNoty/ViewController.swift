@@ -54,7 +54,7 @@ class ViewController: UIViewController, UIWebViewDelegate, JsNotyDelegate {
     }
     
     func didRecieveJsNotification(name:String, data:JSON?){
-        println(name)
+        println(name, data)
     }
     
     
