@@ -25,7 +25,7 @@ public class JsNoty:NSObject {
             return false;
         }
         
-        self.webView.stringByEvaluatingJavaScriptFromString("document.dispatchEvent(new CustomEvent(\"JsNotyRecieved\"))");
+        self.notify("JsNotyRecieved");
         
         let paths = split(request.URL!.path!){$0 == "/"};
         var data:JSON? = nil;
@@ -38,5 +38,20 @@ public class JsNoty:NSObject {
         delegate?.didRecieveJsNotification(key, data: data)
         
         return true;
+    }
+    
+    public func notify(name:String){
+        self.notify(name, data: nil);
+    }
+    
+    public func notify(name:String, data:JSON?){
+        var script:String;
+        if(data != nil){
+            script = String(format: "document.dispatchEvent(new CustomEvent(\"%@\", {detail:%@}))", name, data!.toString());
+        } else {
+            script = String(format: "document.dispatchEvent(new CustomEvent(\"%@\"))", name);
+        }
+        
+        self.webView.stringByEvaluatingJavaScriptFromString(script);
     }
 }

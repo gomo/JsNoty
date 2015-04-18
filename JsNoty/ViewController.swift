@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UIWebViewDelegate, JsNotyDelegate {
     
     private var webView:UIWebView!;
-    private var observer:JsNoty!;
+    private var jsNoty:JsNoty!;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +26,8 @@ class ViewController: UIViewController, UIWebViewDelegate, JsNotyDelegate {
             ));
         self.view.addSubview(self.webView);
         self.webView.delegate = self;
-        self.observer = JsNoty(webView: self.webView);
-        self.observer.delegate = self;
+        self.jsNoty = JsNoty(webView: self.webView);
+        self.jsNoty.delegate = self;
         
         //webViewのキャッシュをクリア（開発用）
         NSURLCache.sharedURLCache().removeAllCachedResponses()
@@ -46,7 +46,7 @@ class ViewController: UIViewController, UIWebViewDelegate, JsNotyDelegate {
     }
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        if(self.observer.receive(request)){
+        if(self.jsNoty.receive(request)){
             return false;
         }
         
@@ -57,6 +57,9 @@ class ViewController: UIViewController, UIWebViewDelegate, JsNotyDelegate {
         println(name, data)
     }
     
-    
+    func webViewDidFinishLoad(webView: UIWebView){
+        self.jsNoty.notify("firstFromSwift");
+        self.jsNoty.notify("secondFromSwift", data: JSON(["foo": "bar"]));
+    }
 }
 

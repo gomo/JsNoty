@@ -8,6 +8,11 @@
       if(!notifying){
         _sendNextRequest();
       }
+    },
+    on : function(name, callback){
+      document.addEventListener(name, function(e){
+        callback(e, e.detail);
+      });
     }
   };
   function _sendNextRequest(){
