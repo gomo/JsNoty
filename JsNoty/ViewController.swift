@@ -34,7 +34,7 @@ class ViewController: UIViewController, UIWebViewDelegate, JsNotyDelegate {
         NSURLCache.sharedURLCache().diskCapacity = 0
         NSURLCache.sharedURLCache().memoryCapacity = 0
         
-        let url = NSURL(string: "http://test.book-on.me/js/js-noty/test/index.html")
+        let url = NSURL(string: "http://test.www.sincere-co.com/JsNoty/test/index.html")
         let request = NSURLRequest(URL: url!)
         self.webView.loadRequest(request)
         
