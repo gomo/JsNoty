@@ -5,6 +5,7 @@
   window.JsNoty = {
     notify : function(name, data){
       queue.push({name: name, data: data});
+
       if(!notifying){
         _sendNextRequest();
       }
@@ -16,13 +17,14 @@
     }
   };
   function _sendNextRequest(){
-    notifying = true;
     if(queue.length){
+      notifying = true;
       var next = queue.pop();
       var url = 'jsnoty://' + next.name + '/' + (next.data ? jsonStringfy(next.data) : '');
       location.href = url;
     }
   };
+  //https://gist.github.com/chicagoworks/754454
   function jsonStringfy(obj){
     if ("JSON" in window) {
       return JSON.stringify(obj);
@@ -43,7 +45,7 @@
           if (t == "string") {
             v = '"' + v + '"';
           } else if (t == "object" && v !== null){
-            v = jQuery.stringify(v);
+            v = jsonStringfy(v);
           }
 
           json.push((arr ? "" : '"' + n + '":') + String(v));
