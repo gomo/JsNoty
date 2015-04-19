@@ -10,9 +10,6 @@
       if(!notifying){
         _sendNextRequest();
       }
-    },
-    on : function(name, callback){
-      $document.on(name, callback);
     }
   };
   function _sendNextRequest(){

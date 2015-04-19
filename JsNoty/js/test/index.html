@@ -6,10 +6,10 @@
   <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script src="../JsNoty.js"></script>
   <script>
-    JsNoty.on('firstFromSwift', function(e){
+    $(document).on('firstFromSwift', function(e){
       console.log('firstFromSwift');
     });
-    JsNoty.on('secondFromSwift', function(e, data){
+    $(document).on('secondFromSwift', function(e, data){
       console.log('secondFromSwift', data.foo);
     });
     window.onload = function(){
