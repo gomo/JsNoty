@@ -3,7 +3,7 @@
   var queue = [];
   var notifying = false;
   window.JsNoty = {
-    nofify : function(name, data){
+    notify : function(name, data){
       queue.push({name: name, data: data});
       if(!notifying){
         _sendNextRequest();
