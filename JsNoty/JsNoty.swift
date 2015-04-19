@@ -20,7 +20,7 @@ public class JsNoty:NSObject {
     
     var delegate:JsNotyDelegate?;
     
-    public func receive(request:NSURLRequest) -> Bool{        
+    public func recieve(request:NSURLRequest) -> Bool{
         if(request.URL!.scheme != "jsnoty"){
             return false;
         }

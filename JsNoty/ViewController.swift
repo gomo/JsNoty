@@ -46,7 +46,7 @@ class ViewController: UIViewController, UIWebViewDelegate, JsNotyDelegate {
     }
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        if(self.jsNoty.receive(request)){
+        if(self.jsNoty.recieve(request)){
             return false;
         }
         
