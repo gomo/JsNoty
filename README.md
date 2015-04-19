@@ -6,7 +6,8 @@ This is a module that communicates javascript and Swift on the UIWebView.
 
 ### Dependency
 
-Needs [swift-json](https://github.com/dankogai/swift-json)
+* [swift-json](https://github.com/dankogai/swift-json)
+* [jQuery](http://jquery.com/)
 
 ### Install
 
@@ -21,23 +22,23 @@ class ViewController: UIViewController, UIWebViewDelegate, JsNotyDelegate {
     private var jsNoty:JsNoty!;
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.jsNoty = JsNoty(webView: self.webView)
         self.jsNoty.delegate = self
-        
+
         let url = NSURL(string: "http://www.expample.com/path/to/page.html")
         let request = NSURLRequest(URL: url!)
         self.webView.loadRequest(request)
     }
-    
+
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         if(self.jsNoty.receive(request)){
             return false;
         }
-        
+
         return true
     }
-    
+
     //JsNotyDelegate. Recieve event from javascript.
     func didRecieveJsNotification(name:String, data:JSON?){
         println(name, data)
@@ -73,7 +74,7 @@ You must call `JsNoty.nofify()` after window onload
     JsNoty.on('secondFromSwift', function(e, data){
       //do somthing using data
     });
-    
+
     window.onload = function(){
       JsNoty.nofify("noparams");
       JsNoty.nofify("second", {foo: "bar", integer: 1, arr: ["1", 2, "hoge"]});

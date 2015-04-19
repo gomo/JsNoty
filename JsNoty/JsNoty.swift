@@ -47,9 +47,9 @@ public class JsNoty:NSObject {
     public func notify(name:String, data:JSON?){
         var script:String;
         if(data != nil){
-            script = String(format: "document.dispatchEvent(new CustomEvent(\"%@\", {detail:%@}))", name, data!.toString());
+            script = String(format: "$(document).trigger(\"%@\", %@)", name, data!.toString());
         } else {
-            script = String(format: "document.dispatchEvent(new CustomEvent(\"%@\"))", name);
+            script = String(format: "$(document).trigger(\"%@\")", name);
         }
         
         self.webView.stringByEvaluatingJavaScriptFromString(script);

@@ -1,7 +1,8 @@
-;(function(){
+;(function($){
   "use strict";
   var queue = [];
   var notifying = false;
+  var $document = $(document);
   window.JsNoty = {
     notify : function(name, data){
       queue.push({name: name, data: data});
@@ -11,9 +12,7 @@
       }
     },
     on : function(name, callback){
-      document.addEventListener(name, function(e){
-        callback(e, e.detail);
-      });
+      $document.on(name, callback);
     }
   };
   function _sendNextRequest(){
@@ -55,8 +54,8 @@
       return (arr ? "[" : "{") + String(json) + (arr ? "]" : "}");
     }
   };
-  document.addEventListener("JsNotyRecieved", function(){
+  $document.on("JsNotyRecieved", function(){
     notifying = false;
     _sendNextRequest();
   });
-})();
+})(jQuery);

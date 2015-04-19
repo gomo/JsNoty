@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script src="../JsNoty.js"></script>
   <script>
     JsNoty.on('firstFromSwift', function(e){
-      alert("firstFromSwift");
+      console.log('firstFromSwift');
     });
     JsNoty.on('secondFromSwift', function(e, data){
-      alert(data.foo);
+      console.log('secondFromSwift', data.foo);
     });
     window.onload = function(){
       JsNoty.notify("noparams");
       JsNoty.notify("second", {foo: "bar", integer: 1, arr: ["1", 2, "hoge"]});
     };
-
   </script>
 </head>
 <body>
